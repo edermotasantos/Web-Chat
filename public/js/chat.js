@@ -50,6 +50,13 @@ const createMessage = (message) => {
   window.scrollTo(0, document.body.scrollHeight);
 };
 
+socket.on('historyMessages', (history) => {
+  history.forEach(({ timestamp, nickname, message }) => {
+    const messageData = `${timestamp} - ${nickname}: ${message}`;
+    createMessage(messageData);
+  });
+});
+
 nickForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const nickname = nickInput.value;
