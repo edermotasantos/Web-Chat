@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/chat.css">
+  <title>Web Chat</title>  
+</head>
+<body>
+  <div class="header-and-body-container">
+    <header class="web-chat-header">
+      <h1>Web Chat</h1>
+    </header>
+    <div class="div-profiles-and-messages-container">
+      <div class="div-input-and-list-users-container">
+        <div class="nickname-input-and-button">
+          <form id="nick-form">
+            <input
+            id="nickname"
+            type="text"
+            data-testid="nickname-box"
+            placeholder="Insira seu nickname"
+          />
+          <button
+            data-testid="nickname-button">Save</button>
+          </form>
+        </div>
+        <div class="div-list-user-">
+          <h3>Users:</h3>
+          <ul id="user-online"></ul>
+        </div>
+      </div>
+      <div class="web-chat-messages">
+        <ul id="messages"></ul>
+      </div>  
+    </div>
+    <div class="input-and-button-message-container">
+      <form id="msg-form">
+        <input
+          id="msg-input"
+          type="text"
+          data-testid="message-box"
+          placeholder="Digite uma nova mensagem aqui"
+          autocomplete="off"
+        />
+        <button data-testid="send-button">Send</button>
+      </form>
+    </div>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/chat.js"></script>
+</body>
+</html>

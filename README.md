@@ -232,13 +232,13 @@ Caso prefira testar um requisito por vez pode executar o teste da seguinte forma
 
 - Toda mensagem que um cliente recebe deve conter as informações acerca de quem a enviou: _nickname_ (apelido), data-hora do envio e o conteúdo da mensagem em si.
 
- - O evento da mensagem deve ter o nome `message` e deve enviar como parâmetro o objeto `{ chatMessage, nickname }`. O `chatMessage` deve ser a mensagem enviada enquanto o `nickname` deverá ser o apelido de quem a enviou;
+ - O evento da mensagem deve ter o nome `message` e deve enviar como parâmetro o objeto `{ message, nickname }`. O `message` deve ser a mensagem enviada enquanto o `nickname` deverá ser o apelido de quem a enviou;
 
  - A data na mensagem deve seguir o padrão 'dd-mm-yyyy' e o horário deve seguir o padrão 'hh:mm:ss' sendo os segundos opcionais;
 
  - O formato da mensagem deve seguir esse padrão:
 
-`DD-MM-yyyy HH:mm:ss ${nickname} ${chatMessage}`
+`DD-MM-yyyy HH:mm:ss ${nickname} ${message}`
 
 - Exemplo prático:
 
