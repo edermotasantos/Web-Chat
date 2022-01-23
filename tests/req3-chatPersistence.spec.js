@@ -25,9 +25,9 @@ function dataTestid(name) {
   return `[data-testid=${name}]`;
 }
 
-const message = 'The more I study, the more insatiable do I feel my genius for it to be.';
-const anothermessage = 'Your best and wisest refuge from all troubles is in your science.';
-const yetAnothermessage = 'The science of operations, as derived from mathematics more especially, is a science of itself, and has its own abstract truth and value.';
+const chatMessage = 'The more I study, the more insatiable do I feel my genius for it to be.';
+const anotherChatMessage = 'Your best and wisest refuge from all troubles is in your science.';
+const yetAnotherChatMessage = 'The science of operations, as derived from mathematics more especially, is a science of itself, and has its own abstract truth and value.';
 const nickname = 'Ada Lovelace';
 
 describe('3 - Elabore o histórico do chat para que as mensagens persistam', () => {
@@ -62,9 +62,9 @@ describe('3 - Elabore o histórico do chat para que as mensagens persistam', () 
   });
 
   it('Será validado que todo o histórico de mensagens irá aparecer quando o cliente se conectar', async () => {
-    const firstMessageToSend = { message: message, nickname: nickname };
-    const secondMessageToSend = { message: anothermessage, nickname: nickname };
-    const thirdMessageToSend = { message: yetAnothermessage, nickname: nickname };
+    const firstMessageToSend = { chatMessage: chatMessage, nickname: nickname };
+    const secondMessageToSend = { chatMessage: anotherChatMessage, nickname: nickname };
+    const thirdMessageToSend = { chatMessage: yetAnotherChatMessage, nickname: nickname };
 
     // sends lots of messages
     client1.emit('message', firstMessageToSend);
@@ -86,9 +86,9 @@ describe('3 - Elabore o histórico do chat para que as mensagens persistam', () 
 
     expect(messages).toEqual(
       expect.arrayContaining([
-        expect.stringMatching(message),
-        expect.stringMatching(anothermessage),
-        expect.stringMatching(yetAnothermessage),
+        expect.stringMatching(chatMessage),
+        expect.stringMatching(anotherChatMessage),
+        expect.stringMatching(yetAnotherChatMessage),
       ])
     );
 
@@ -98,9 +98,9 @@ describe('3 - Elabore o histórico do chat para que as mensagens persistam', () 
 
     expect(messages).toEqual(
       expect.arrayContaining([
-        expect.stringMatching(message),
-        expect.stringMatching(anothermessage),
-        expect.stringMatching(yetAnothermessage),
+        expect.stringMatching(chatMessage),
+        expect.stringMatching(anotherChatMessage),
+        expect.stringMatching(yetAnotherChatMessage),
       ])
     );
   });
@@ -112,17 +112,17 @@ describe('3 - Elabore o histórico do chat para que as mensagens persistam', () 
     let sendButton = await page.$(`button${dataTestid('send-button')}`);
 
     //send one message
-    await messageBox.type(message);
+    await messageBox.type(chatMessage);
     await sendButton.click();
     await page.waitForSelector(dataTestid('message'));
 
     //send another message
-    await messageBox.type(anothermessage);
+    await messageBox.type(anotherChatMessage);
     await sendButton.click();
     await page.waitForSelector(dataTestid('message'));
 
     //another client sends a message
-    const messageToSend = { message: yetAnothermessage, nickname: nickname };
+    const messageToSend = { chatMessage: yetAnotherChatMessage, nickname: nickname };
     //typing...
     wait(500)
     client1.emit('message', messageToSend);
@@ -135,9 +135,9 @@ describe('3 - Elabore o histórico do chat para que as mensagens persistam', () 
 
     expect(messages).toEqual(
       expect.arrayContaining([
-        expect.stringMatching(message),
-        expect.stringMatching(anothermessage),
-        expect.stringMatching(yetAnothermessage),
+        expect.stringMatching(chatMessage),
+        expect.stringMatching(anotherChatMessage),
+        expect.stringMatching(yetAnotherChatMessage),
       ])
     )
 
@@ -151,9 +151,9 @@ describe('3 - Elabore o histórico do chat para que as mensagens persistam', () 
 
     expect(messages).toEqual(
       expect.arrayContaining([
-        expect.stringMatching(message),
-        expect.stringMatching(anothermessage),
-        expect.stringMatching(yetAnothermessage),
+        expect.stringMatching(chatMessage),
+        expect.stringMatching(anotherChatMessage),
+        expect.stringMatching(yetAnotherChatMessage),
       ])
     )
 
@@ -175,9 +175,9 @@ describe('3 - Elabore o histórico do chat para que as mensagens persistam', () 
 
     expect(messages).toEqual(
       expect.arrayContaining([
-        expect.stringMatching(message),
-        expect.stringMatching(anothermessage),
-        expect.stringMatching(yetAnothermessage),
+        expect.stringMatching(chatMessage),
+        expect.stringMatching(anotherChatMessage),
+        expect.stringMatching(yetAnotherChatMessage),
         expect.stringMatching(newMessage),
       ])
     );
@@ -190,7 +190,7 @@ describe('3 - Elabore o histórico do chat para que as mensagens persistam', () 
     const sendButton = await page.$(`button${dataTestid('send-button')}`);
 
     //send one message
-    await messageBox.type(message);
+    await messageBox.type(chatMessage);
     await sendButton.click();
     await page.waitForSelector(dataTestid('message'));
 
@@ -198,7 +198,7 @@ describe('3 - Elabore o histórico do chat para que as mensagens persistam', () 
     let messages = await page.$$eval(dataTestid('message'), (nodes) => nodes.map((n) => n.innerText));
     expect(messages.length).toBeGreaterThanOrEqual(1);
     let latestMessage = _.last(messages);
-    expect(latestMessage).toMatch(message);
+    expect(latestMessage).toMatch(chatMessage);
 
 
     //changes nickname
@@ -210,7 +210,7 @@ describe('3 - Elabore o histórico do chat para que as mensagens persistam', () 
 
 
     //send another message
-    await messageBox.type(anothermessage);
+    await messageBox.type(anotherChatMessage);
     await sendButton.click();
     await page.waitForTimeout(1000);
 
@@ -219,7 +219,7 @@ describe('3 - Elabore o histórico do chat para que as mensagens persistam', () 
     messages = await page.$$eval(dataTestid('message'), (nodes) => nodes.map((n) => n.innerText));
     expect(messages).toEqual(
       expect.arrayContaining([
-        expect.stringMatching(anothermessage),
+        expect.stringMatching(anotherChatMessage),
         expect.stringMatching(nickname),
       ])
     )
@@ -233,8 +233,8 @@ describe('3 - Elabore o histórico do chat para que as mensagens persistam', () 
     messages = await page2.$$eval(dataTestid('message'), (nodes) => nodes.map((n) => n.innerText));
     expect(messages).toEqual(
       expect.arrayContaining([
-        expect.stringMatching(message),
-        expect.stringMatching(anothermessage),
+        expect.stringMatching(chatMessage),
+        expect.stringMatching(anotherChatMessage),
         expect.stringMatching(nickname),
       ])
     );
@@ -245,8 +245,8 @@ describe('3 - Elabore o histórico do chat para que as mensagens persistam', () 
 
     expect(messages).toEqual(
       expect.arrayContaining([
-        expect.stringMatching(message),
-        expect.stringMatching(anothermessage),
+        expect.stringMatching(chatMessage),
+        expect.stringMatching(anotherChatMessage),
       ])
     );
   });

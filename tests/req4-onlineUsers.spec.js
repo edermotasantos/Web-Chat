@@ -13,9 +13,9 @@ function dataTestid(name) {
   return `[data-testid=${name}]`;
 }
 
-const message = 'The more I study, the more insatiable do I feel my genius for it to be.';
-const anothermessage = 'Your best and wisest refuge from all troubles is in your science.';
-const yetAnothermessage = 'The science of operations, as derived from mathematics more especially, is a science of itself, and has its own abstract truth and value.';
+const chatMessage = 'The more I study, the more insatiable do I feel my genius for it to be.';
+const anotherChatMessage = 'Your best and wisest refuge from all troubles is in your science.';
+const yetAnotherChatMessage = 'The science of operations, as derived from mathematics more especially, is a science of itself, and has its own abstract truth and value.';
 const nickname = 'Ada Lovelace';
 const anotherNickname = 'Alan Turing';
 
