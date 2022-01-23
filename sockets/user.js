@@ -35,5 +35,5 @@ const disconnectUser = (socket) => {
 module.exports = {
   connectUser,
   updateNickname,
-  disconnectUser,
+  disconnectUser,  
 };

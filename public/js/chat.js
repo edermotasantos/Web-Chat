@@ -5,14 +5,14 @@ const socket = window.io();
  * Link do repositório: https://github.com/tryber/sd-011-project-webchat/pull/7/files
  */
 
- const msgForm = document.querySelector('#msg-form');
- const msgInput = document.querySelector('#msg-input');
- const nickForm = document.querySelector('#nick-form');
- const nickInput = document.querySelector('#nickname');
- 
- const DATA_TESTID = 'data-testid';
+const msgForm = document.querySelector('#msg-form');
+const msgInput = document.querySelector('#msg-input');
+const nickForm = document.querySelector('#nick-form');
+const nickInput = document.querySelector('#nickname');
 
- const randomNickGenerator = () => {
+const DATA_TESTID = 'data-testid';
+
+const randomNickGenerator = () => {
   let nickname = '';
   const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
   for (let i = 0; i < 16; i += 1) {

@@ -1,7 +1,7 @@
 const messageModels = require('../models/message');
 
-const storeMessage = async ({ nickname, message, timestamp }) => {
-  await messageModels.storeMessage({ nickname, message, timestamp });
+const storeMessage = async ({ nickname, chatMessage, timestamp }) => {
+  await messageModels.storeMessage({ nickname, chatMessage, timestamp });
 };
 
 const getAllMessages = async () => {
@@ -12,4 +12,4 @@ const getAllMessages = async () => {
 module.exports = {
   storeMessage,
   getAllMessages,
-}; 
+};
