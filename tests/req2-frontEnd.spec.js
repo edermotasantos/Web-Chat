@@ -9,9 +9,9 @@ function dataTestid(name) {
   return `[data-testid=${name}]`;
 }
 
-const message = 'The more I study, the more insatiable do I feel my genius for it to be.';
-const anothermessage = 'Your best and wisest refuge from all troubles is in your science.';
-const yetAnothermessage = 'The science of operations, as derived from mathematics more especially, is a science of itself, and has its own abstract truth and value.';
+const chatMessage = 'The more I study, the more insatiable do I feel my genius for it to be.';
+const anotherChatMessage = 'Your best and wisest refuge from all troubles is in your science.';
+const yetAnotherChatMessage = 'The science of operations, as derived from mathematics more especially, is a science of itself, and has its own abstract truth and value.';
 const nickname = 'Ada Lovelace';
 
 describe('2 - Crie um frontend para que as pessoas interajam com o chat', () => {
@@ -52,12 +52,12 @@ describe('2 - Crie um frontend para que as pessoas interajam com o chat', () => 
     const sendButton = await page.$(`button${dataTestid('send-button')}`);
 
     //send one message
-    await messageBox.type(message);
+    await messageBox.type(chatMessage);
     await sendButton.click();
     await page.waitForSelector(dataTestid('message'));
 
     //send another message
-    await messageBox.type(anothermessage);
+    await messageBox.type(anotherChatMessage);
     await sendButton.click();
     await page.waitForTimeout(500);
 
@@ -71,17 +71,17 @@ describe('2 - Crie um frontend para que as pessoas interajam com o chat', () => 
     const sendButton = await page.$(`button${dataTestid('send-button')}`);
 
     //send one message
-    await messageBox.type(message);
+    await messageBox.type(chatMessage);
     await sendButton.click();
     await page.waitForSelector(dataTestid('message'));
 
     //send another message
-    await messageBox.type(anothermessage);
+    await messageBox.type(anotherChatMessage);
     await sendButton.click();
     await page.waitForTimeout(500);
 
     //send yet another message
-    await messageBox.type(yetAnothermessage);
+    await messageBox.type(yetAnotherChatMessage);
     await sendButton.click();
     await page.waitForTimeout(500);
 
@@ -90,9 +90,9 @@ describe('2 - Crie um frontend para que as pessoas interajam com o chat', () => 
     const latestMessages = _.takeRight(messages, 3);
 
 
-    expect(latestMessages[0]).toMatch(message);
-    expect(latestMessages[1]).toMatch(anothermessage);
-    expect(latestMessages[2]).toMatch(yetAnothermessage);
+    expect(latestMessages[0]).toMatch(chatMessage);
+    expect(latestMessages[1]).toMatch(anotherChatMessage);
+    expect(latestMessages[2]).toMatch(yetAnotherChatMessage);
   });
 
   it('Será validado que o front-end tem um campo de texto para preencher e um botão para alterar o apelido (nickname)', async () => {
@@ -115,7 +115,7 @@ describe('2 - Crie um frontend para que as pessoas interajam com o chat', () => 
 
     //Client sends a message
     const messageBox = await page.$(`input${dataTestid('message-box')}`);
-    await messageBox.type(message);
+    await messageBox.type(chatMessage);
     const sendButton = await page.$(`button${dataTestid('send-button')}`);
     await sendButton.click();
     await page.waitForTimeout(500);
@@ -125,7 +125,7 @@ describe('2 - Crie um frontend para que as pessoas interajam com o chat', () => 
 
     expect(messages).toEqual(
       expect.arrayContaining([
-        expect.stringMatching(message),
+        expect.stringMatching(chatMessage),
         expect.stringMatching(nickname),
       ])
     )
@@ -137,7 +137,7 @@ describe('2 - Crie um frontend para que as pessoas interajam com o chat', () => 
 
     //former client sends a message
     await page.bringToFront();
-    await messageBox.type(anothermessage);
+    await messageBox.type(anotherChatMessage);
     await sendButton.click();
     await page.waitForTimeout(500);
 
@@ -147,7 +147,7 @@ describe('2 - Crie um frontend para que as pessoas interajam com o chat', () => 
     const formerClientMessages = await page.$$eval(dataTestid('message'), (nodes) => nodes.map((n) => n.innerText));
     expect(formerClientMessages).toEqual(
       expect.arrayContaining([
-        expect.stringMatching(anothermessage),
+        expect.stringMatching(anotherChatMessage),
         expect.stringMatching(nickname),
       ])
     )
