@@ -70,9 +70,9 @@ nickForm.addEventListener('submit', (e) => {
 msgForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const getNick = sessionStorage.getItem('nickname');
-  const message = msgInput.value;
+  const chatMessage = msgInput.value;
   if (msgInput.value) {
-    socket.emit('message', { message, nickname: getNick });
+    socket.emit('message', { chatMessage, nickname: getNick });
     msgInput.value = '';
   }
   return false;
