@@ -5,126 +5,111 @@
 }
 
 /* https://www.w3schools.com/csS/css3_shadows.asp */
-
 h1 {
   text-shadow: 2px 2px 5px red;
 }
-  
-html, body {
-  width: 100%;
+
+html , body {
   height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.div-profiles-and-messages-container {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+}
+
+.header-and-body-container {
+  color: #101010;
+}
+
+.web-chat-header {
+  align-items: center;
+  background: #101010;
+  box-shadow: 2px 2px 5px #101010;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.div-input-and-list-users-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  width: 25%;
+}
+
+.div-list-user {
+  margin-top: 10px;
+  padding: 20px 20px 60px;
+}
+
+.div-list-user ul li {
+  margin: 10px;
+  padding: 10px 0;
+}
+
+.nickname-input-and-button input {
+  background: #191919;
+  margin: 10px;
+  padding: 5px;
+  width: 70%;
+}
+
+.input-and-button-message-container {
+  background-color: #101010;
+  bottom: 0;
+  margin: 10px;
+  padding: 12px;
+  position: fixed;
+  width: 100%;
+}
+
+.input-and-button-message-container form {
+  display: flex;
+  margin-top: 10px;
+}
+
+.input-and-button-message-container form input {
+  border: 0;
+  display: flex;
+  height: 30px;
+  margin-right: 0.5%;
+  margin-top: 10px;
+  padding: 10px;
+  width: 90%;
+}
+
+.input-and-button-message-container form button {
+  background: whitesmoke;
+  border: none;
+  color: antiquewhite;
+  cursor: pointer;
+  padding: 10px;
+  width: 9%;
+}
+
+.web-chat-messages {
+  float: right;
+  max-height: 500px;
+  padding: 30px;
+  width: 80%;
+}
+
+.web-chat-messages ul {
+  list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-/* https://pt.stackoverflow.com/questions/365535/com-fazer-com-css-um-background-tipo-fibra-de-carbono-tem-como-fazer-fundo-esti */
-
-body {
-background: 
-linear-gradient(27deg, #101010 5px, transparent 5px) 0 5px,
-linear-gradient(207deg, #101010 5px, transparent 5px) 10px 0px,
-linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
-linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
-linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
-linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
-background-color: #131313;
-background-size: 20px 20px;
+.web-chat-messages ul li {
+  padding: 5px 10px;
 }
 
-.div-profiles-and-messages-container {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
+.web-chat-messages li:nth-child( odd ) {
+  background: #eee;
 }
-  
-.header-and-body-container {
-  color: #101010;
-}
-  
-.web-chat-header {
-  align-items: center;
-  background: #101010;
-  display: flex;
-  justify-content: center;
-  padding: 20px;
-  box-shadow: 2px 2px 5px #101010;
-}
-  
-  .div-input-and-list-users-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 25%;
-    padding: 20px;
-  }
-  
-  .div-list-user {
-    margin-top: 10px;
-    padding: 20px 20px 60px;
-  }
-  
-  .div-list-user ul li {
-    padding: 10px 0;
-    margin: 10px;
-  }
-  
-  .nickname-input-and-button input {
-    background: #191919;
-    margin: 10px;
-    padding: 5px;
-    width: 70%;
-  }
-  
-  .input-and-button-message-container {
-    background-color: #101010;
-    bottom: 0;
-    margin: 10px;
-    padding: 12px;
-    position: fixed;
-    width: 100%;
-  }
-  
-  .input-and-button-message-container form {
-    display: flex;
-    margin-top: 10px;
-  }
-  
-  .input-and-button-message-container form input {
-    border: 0;
-    display: flex;
-    height: 30px;
-    margin-right: 0.5%;
-    margin-top: 10px;
-    padding: 10px;
-    width: 90%;
-  }
-  
-  .input-and-button-message-container form button {
-    background: whitesmoke;
-    border: none;
-    color: antiquewhite;
-    cursor: pointer;
-    padding: 10px;
-    width: 9%;
-  }
-  
-  .web-chat-messages {
-    float: right;
-    max-height: 500px;
-    padding: 30px;
-    width: 80%;
-  }
- 
-  .web-chat-messages ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .web-chat-messages ul li {
-    padding: 5px 10px;
-  }
-  
-  .web-chat-messages li:nth-child( odd ) {
-    background: #eee;
-  }
