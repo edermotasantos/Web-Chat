@@ -2,7 +2,6 @@ const messageControllers = require('../controllers/message');
 
 const usersStorage = [];
 
-
 const connectUser = (socket, io) => {
   socket.on('userConnected ', async (nickname) => {
     usersStorage.push({ nickname, id: socket.id });
